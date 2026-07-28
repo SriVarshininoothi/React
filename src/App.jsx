@@ -14,6 +14,7 @@ import Rendering_list from './Rendering_Lists/Rendering_list'
 import FormValidation from './Events&FormHandling/FormValidation'
 import FetchAPI from './UseEffect/FetchAPI'
 import ProductCards from './UseEffect/ProductCards'
+import RandomuserGenerator from './UseEffect/RandomuserGenertor'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -30,7 +31,10 @@ function App() {
       {/* <Rendering_list/> */}
       {/* <FormValidation/> */}
       {/* <FetchAPI/> */}
-      <ProductCards/>
+      {/* <ProductCards/> */}
+
+      <RandomuserGenerator/>
+      
     </>
   )
 }
