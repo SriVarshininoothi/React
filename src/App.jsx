@@ -15,6 +15,7 @@ import FormValidation from './Events&FormHandling/FormValidation'
 import FetchAPI from './UseEffect/FetchAPI'
 import ProductCards from './UseEffect/ProductCards'
 import RandomuserGenerator from './UseEffect/RandomuserGenertor'
+import EmployeeDashboard from './Rendering_Lists/EmployeeDashboard'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -33,7 +34,8 @@ function App() {
       {/* <FetchAPI/> */}
       {/* <ProductCards/> */}
 
-      <RandomuserGenerator/>
+      {/* <RandomuserGenerator/> */}
+      <EmployeeDashboard/>
       
     </>
   )
