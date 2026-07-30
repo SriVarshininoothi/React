@@ -7,16 +7,14 @@ const RandomuserGenerator = () => {
     const [users, setUser] = useState(null);
     const [loading, setloading] = useState(true);
     const [error, setError] = useState("");
-
-
+    
+ 
+    
     //fetch data
-
-
         const RandomUser = async () => {
             
                 setloading(true);
                 setError("");
-
             try {
 
                 const response = await fetch("https://randomuser.me/api/");
@@ -37,7 +35,9 @@ const RandomuserGenerator = () => {
         };
         
         useEffect(() => {
-            RandomUser();
+
+             RandomUser();
+
         },[]);
 
     if (loading) {
@@ -61,8 +61,6 @@ const RandomuserGenerator = () => {
 
         <div className="container text-center my-4">
             <h2 className="mb-4">Random User Geneator</h2>
-
-
             {
                 users && (
 
@@ -80,13 +78,13 @@ const RandomuserGenerator = () => {
                                 />
 
                                 <div className="card-body">
-
-                                    
+           
                                     <h2>{users.name.title} {users.name.first} {users.name.last}</h2>
                                     <p>Gender: <strong> {users.gender}</strong></p>
                                     <p>Email: <strong> {users.email}</strong></p>
                                     <p>Phone: <strong>{users.phone}</strong></p>
                                     <p>Country: <strong>{users.location.country}</strong></p>
+
                                     <button className="btn btn-primary w-100" onClick={RandomUser}>New User</button>
 
 

@@ -8,8 +8,9 @@ const ProductCards = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Fetch API
+  // Fetch API 
   useEffect(() => {
+
     const fetchProducts = async () => {
       try {
         setLoading(true);
@@ -24,7 +25,8 @@ const ProductCards = () => {
     };
 
     fetchProducts();
-  }, []);
+
+  },[]);  
 
   // 1. Loading State
   if (loading) {
@@ -51,6 +53,7 @@ const ProductCards = () => {
       <h2 className="text-center mb-4">Product Listing</h2>
 
       <div className="row">
+
         {products.map((product) => (
           <div key={product.id} className="col-md-4 mb-4">
             <div className="card h-100 shadow">
