@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 const Products = () => {
   return (
     <div>
+
       <h1>Products Page</h1>
 
       {
@@ -14,6 +15,7 @@ const Products = () => {
 
                 <h3>{item.name }</h3>
                 <p>{item.price}</p>
+                <Link to={`/products/${item.id}`}>View Details</Link>
                 
 
             </div>
