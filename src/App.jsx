@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import './App.css';
 import Header from './Router/Components/Header';
 import { Routes, Route } from 'react-router-dom';
@@ -12,12 +12,45 @@ import RandomuserGenerator from './UseEffect/RandomuserGenertor';
 import Profile from './Profile'
 import { UserContext } from './Context/UserContext';
 
+const initialState = {
+  count: 0,
+  color:"black"
+};
+
+function reducer(state, action) {
+
+  switch (action.type) {
+
+    case 'INCREMENT':
+      return {
+        ...state,
+        count: state.count + 1,
+        color:"green"
+        
+      };
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - 1,
+        color:"red"
+      };
+
+    default:
+      return state;
+
+
+  }
+}
+
 function App() {
 
-  const user = {
-    name: "Rahul",
-    role: "Developer",
-  };
+  // const user = {
+  //   name: "Rahul",
+  //   role: "Developer",
+  // };
+
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
@@ -33,9 +66,20 @@ function App() {
       */}
 
       {/* Wrap Profile with UserContext.Provider and pass the user object */}
-      <UserContext.Provider value={user}>
+      {/* <UserContext.Provider value={user}>
         <Profile />
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+
+      <div >
+        <h2 style={{color:state.color}}>{state.count}</h2>
+
+        <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+        <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+
+      </div>
+
+
+
     </>
   );
 }
